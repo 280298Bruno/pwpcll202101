@@ -6,7 +6,7 @@ module.exports = {
         path: '/public',  //3. Ruta absoluta de la salida
         filename: 'bundle.js' //4. Nombre del archivo de salida
     },
-    devServer : {
+    static : {
         static: './public'
     }
 }
