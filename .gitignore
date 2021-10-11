@@ -1,0 +1,3 @@
+# Ingnorando las depencias
+node_modules
+dist-server

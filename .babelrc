@@ -1,0 +1,23 @@
+{
+  "presets": [
+      "minify",
+    [
+      "@babel/preset-env",
+      {
+        "targets": { "node": "current" }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+          "root" : ["./"],
+          "alias" : {
+              "@server" : "./server",
+              "@s-routes" : "./server/routes"
+          }
+      }
+    ]
+  ]
+}
