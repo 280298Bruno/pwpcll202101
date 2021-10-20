@@ -15,7 +15,44 @@ module.exports = {
     },
     devServer: {
         static: path.join(__dirname, 'public'),
-        port: 8080,
+        port: 8085,
         host: 'localhost'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_componentes)/,
+                use: [
+                    {
+                        loader:'babel-loader',
+                        options: {
+                            presets: [
+                                [
+                                    '@babel/preset-env',
+                                    {
+                                        'modules': false,
+                                        'useBuiltIns':'usage',
+                                        'targets': {"chrome": "80"},
+                                        'corejs': 3
+                                    }
+                                ]
+                            ],
+                            "plugins": [
+                                [
+                                    "module-resolver",
+                                    {
+                                        "root": ["./"],
+                                        "alias": {
+                                            "@client" : "./client",
+                                        }
+                                    }
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
     }
 }
