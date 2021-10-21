@@ -67,6 +67,6 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'styles/app.css'
         }),
-        new EslintWebpackPlugin()
+       new EslintWebpackPlugin()
     ]
 }
