@@ -5,10 +5,12 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-// eslint-disable-next-line import/no-unresolved
+
 import indexRouter from '@s-routes/index';
-// eslint-disable-next-line import/no-unresolved
 import usersRouter from '@s-routes/users';
+
+// Importing configurations
+import  configTemplateEngine  from '@s-config/template-engine';
 
 // Webpack Modules
 import webpack from 'webpack';
@@ -54,8 +56,7 @@ if (env === 'development') {
 }
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+configTemplateEngine(app);
 
 app.use(logger('dev'));
 app.use(express.json());
