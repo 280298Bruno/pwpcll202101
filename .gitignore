@@ -1,3 +1,6 @@
 # Ingnorando las depencias
 node_modules
 dist-server
+# Ingnorando los archivos de logs
+logs
+*.logs

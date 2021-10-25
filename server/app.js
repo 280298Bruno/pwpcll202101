@@ -3,14 +3,14 @@ import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
-import logger from 'morgan';
-
+import morgan from 'morgan';
+import winston from 'winston';
 
 import indexRouter from '@s-routes/index';
 import usersRouter from '@s-routes/users';
 
 // Importing configurations
-import  configTemplateEngine  from '@s-config/template-engine';
+import configTemplateEngine from '@s-config/template-engine';
 
 // Webpack Modules
 import webpack from 'webpack';
@@ -49,6 +49,7 @@ if (env === 'development') {
       publicPath: webpackDevConfig.output.publicPath,
     }),
   );
+
   // Paso 5. Agregando el Webpack Hot middleware
   app.use(webpackHotMiddleware(compiler));
 } else {
@@ -58,7 +59,7 @@ if (env === 'development') {
 // view engine setup
 configTemplateEngine(app);
 
-app.use(logger('dev'));
+app.use(morgan('combined', { stream: winston.stream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
