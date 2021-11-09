@@ -8,10 +8,13 @@ import homeController from '@server/controllers/homeController';
 const router = new Router();
 
 // Get '/'
-router.get('/', homeController.index);
+router.get(['/', '/index'], homeController.index);
 
 // Get '/greeting'
 router.get('/greeting', homeController.greeting);
+
+// Get '/about'
+router.get('/about', homeController.about);
 
 // Exportando router de subritas
 // para controlador home
