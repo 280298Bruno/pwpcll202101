@@ -8,28 +8,8 @@
     <link rel='stylesheet' href='/styles/app.css' />
   </head>
   <body>
-   <nav>
-  <div class="container">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-log">
-       &#128209;ProjNotes
-      </a>
-      <ul class="right hide-on-md-and-down">
-        <li>
-          <a href="/">
-            Inicio
-          </a>
-        </li>
-        <li>
-          <a href="/about">
-            Acerca de...
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+    {{!-- Vista parcial de barra de navegacion--}}
+    {{> _navbar}}
     <div class="container">
     {{{body}}}
     </div>
