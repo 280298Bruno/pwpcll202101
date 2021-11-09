@@ -1,4 +1,4 @@
-var express = require('express');
+import { Router } from 'express';
 var router = express.Router();
 
 /* GET home page. */
